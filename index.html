@@ -33,7 +33,6 @@
             border-radius: 20px;
             padding: 40px 60px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-            animation: pulse 2s ease-in-out infinite alternate;
             transition: all 0.4s ease;
             position: relative;
             cursor: pointer;
@@ -42,6 +41,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
+        }
+
+        .clock-container:hover {
+            transform: scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
         }
 
         /* Circle shape for analog clock */
@@ -96,14 +100,571 @@
             transition: transform 0.05s cubic-bezier(0.4, 2.3, 0.8, 1);
             left: 50%;
             transform: translateX(-50%);
+            bottom: 50%;
         }
 
         .hour-hand {
             width: 8px;
             height: 80px;
-            top: 50%;
-            margin-top: -80px;
             background: linear-gradient(to top, #ff6666, #ff4444);
+            transform: translateX(-50%) rotate(0deg);
+        }
+
+        .minute-hand {
+            width: 6px;
+            height: 120px;
+            background: linear-gradient(to top, #ff6666, #ff4444);
+            transform: translateX(-50%) rotate(0deg);
+        }
+
+        .second-hand {
+            width: 2px;
+            height: 140px;
+            background: #ff4444;
+            z-index: 3;
+            transform: translateX(-50%) rotate(0deg);
+        }
+
+        /* Center dot */
+        .center-dot {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 12px;
+            height: 12px;
+            background: #ff6666;
+            border-radius: 50%;
+            z-index: 4;
+            box-shadow: 0 0 10px rgba(255, 102, 102, 0.5);
+        }
+
+        /* Digital clock in circle mode */
+        .clock-container.circle .digital-display {
+            position: absolute;
+            bottom: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #ff6666;
+            font-size: 1rem;
+            opacity: 0.8;
+            letter-spacing: 1px;
+        }
+
+        /* Light mode styles */
+        .light-mode .clock-container {
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .light-mode .clock-container:hover {
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+        }
+
+        .light-mode .clock {
+            color: #333;
+        }
+
+        .light-mode .clock-container.circle .clock-face {
+            border-color: rgba(255, 68, 68, 0.3);
+        }
+
+        .light-mode .number {
+            color: #ff4444;
+        }
+
+        .light-mode .hand {
+            background: #ff4444;
+        }
+
+        .light-mode .hour-hand {
+            background: linear-gradient(to top, #ff4444, #ff2222);
+        }
+
+        .light-mode .minute-hand {
+            background: linear-gradient(to top, #ff4444, #ff2222);
+        }
+
+        .light-mode .second-hand {
+            background: #ff2222;
+        }
+
+        .light-mode .center-dot {
+            background: #ff4444;
+            box-shadow: 0 0 10px rgba(255, 68, 68, 0.5);
+        }
+
+        .light-mode .clock-container.circle .digital-display {
+            color: #ff4444;
+        }
+
+        .time {
+            font-size: 4.5rem;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(255, 102, 102, 0.3);
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            position: relative;
+            transition: color 0.4s ease;
+        }
+
+        .light-mode .time {
+            color: #ff4444;
+            text-shadow: 0 0 10px rgba(255, 68, 68, 0.2);
+        }
+
+        .time::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ff6666, transparent);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        .light-mode .time::after {
+            background: linear-gradient(90deg, transparent, #ff4444, transparent);
+        }
+
+        @keyframes glow {
+            0% {
+                opacity: 0.3;
+            }
+            100% {
+                opacity: 0.6;
+            }
+        }
+
+        .date {
+            font-size: 1.5rem;
+            opacity: 0.8;
+            margin-top: 20px;
+            letter-spacing: 1px;
+            color: #cccccc;
+            transition: color 0.4s ease;
+        }
+
+        .light-mode .date {
+            color: #666;
+        }
+
+        .seconds {
+            font-size: 1.2rem;
+            opacity: 0.7;
+            margin-top: 10px;
+            animation: blink 1s infinite;
+            color: #ff6666;
+            transition: color 0.4s ease;
+        }
+
+        .light-mode .seconds {
+            color: #ff4444;
+        }
+
+        @keyframes blink {
+            0%, 50% {
+                opacity: 0.7;
+            }
+            51%, 100% {
+                opacity: 0.3;
+            }
+        }
+
+        .colon {
+            animation: blink-colon 1s infinite;
+        }
+
+        @keyframes blink-colon {
+            0%, 50% {
+                opacity: 1;
+            }
+            51%, 100% {
+                opacity: 0.3;
+            }
+        }
+
+        /* Light mode toggle button */
+        .mode-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 60px;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+
+        .mode-toggle:hover {
+            transform: scale(1.05);
+        }
+
+        .light-mode .mode-toggle {
+            background: rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.2);
+        }
+
+        .toggle-slider {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 26px;
+            height: 26px;
+            background: #ff6666;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .light-mode .toggle-slider {
+            transform: translateX(30px);
+            background: #ff4444;
+        }
+
+        /* Shape indicator */
+        .shape-indicator {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.6);
+            background: rgba(0, 0, 0, 0.3);
+            padding: 3px 8px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        .light-mode .shape-indicator {
+            color: rgba(0, 0, 0, 0.6);
+            background: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Controls info */
+        .controls-info {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+            text-align: center;
+            width: 100%;
+            pointer-events: none;
+        }
+
+        .light-mode .controls-info {
+            color: rgba(0, 0, 0, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .clock-container {
+                padding: 30px 40px;
+                min-width: 300px;
+                min-height: 250px;
+            }
+            
+            .clock-container.circle {
+                width: 300px;
+                height: 300px;
+                padding: 40px;
+            }
+            
+            .hour-hand {
+                height: 60px;
+                width: 6px;
+            }
+            
+            .minute-hand {
+                height: 90px;
+                width: 4px;
+            }
+            
+            .second-hand {
+                height: 100px;
+            }
+            
+            .number {
+                font-size: 1.2rem;
+            }
+            
+            .time {
+                font-size: 3rem;
+            }
+            
+            .date {
+                font-size: 1.2rem;
+            }
+            
+            .seconds {
+                font-size: 1rem;
+            }
+            
+            .mode-toggle {
+                top: 15px;
+                right: 15px;
+                width: 50px;
+                height: 25px;
+            }
+            
+            .toggle-slider {
+                width: 21px;
+                height: 21px;
+            }
+            
+            .light-mode .toggle-slider {
+                transform: translateX(25px);
+            }
+            
+            .controls-info {
+                font-size: 0.8rem;
+                bottom: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .clock-container {
+                padding: 25px 30px;
+                min-width: 250px;
+                min-height: 200px;
+            }
+            
+            .clock-container.circle {
+                width: 250px;
+                height: 250px;
+                padding: 30px;
+            }
+            
+            .hour-hand {
+                height: 50px;
+                width: 5px;
+            }
+            
+            .minute-hand {
+                height: 70px;
+                width: 3px;
+            }
+            
+            .second-hand {
+                height: 80px;
+            }
+            
+            .number {
+                font-size: 1rem;
+            }
+            
+            .time {
+                font-size: 2.5rem;
+            }
+            
+            .date {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Light mode toggle button -->
+    <div class="mode-toggle" id="modeToggle">
+        <div class="toggle-slider"></div>
+    </div>
+    
+    <div class="clock-container" id="clockContainer">
+        <!-- Digital clock content -->
+        <div class="clock" id="digitalClock">
+            <div class="time" id="time">
+                <span id="hours">00</span><span class="colon">:</span><span id="minutes">00</span><span class="colon">:</span><span id="seconds-main">00</span>
+            </div>
+            <div class="date" id="date">Loading...</div>
+        </div>
+        
+        <!-- Analog clock content -->
+        <div class="clock" id="analogClock" style="display: none;">
+            <div class="clock-face" id="clockFace"></div>
+            <div class="hand hour-hand" id="hourHand"></div>
+            <div class="hand minute-hand" id="minuteHand"></div>
+            <div class="hand second-hand" id="secondHand"></div>
+            <div class="center-dot" id="centerDot"></div>
+            <div class="digital-display" id="analogDigitalDisplay">00:00:00</div>
+        </div>
+        
+        <!-- Shape indicator -->
+        <div class="shape-indicator" id="shapeIndicator">Digital</div>
+    </div>
+
+    <!-- Controls info -->
+    <div class="controls-info" id="controlsInfo">
+        Click clock to switch to Analog • Toggle button for light/dark mode
+    </div>
+
+    <script>
+        // ==================== CONFIGURATION ====================
+        let isAnalogMode = false;
+        let isLightMode = false;
+        
+        // ==================== DOM ELEMENTS ====================
+        const body = document.body;
+        const clockContainer = document.getElementById('clockContainer');
+        const digitalClock = document.getElementById('digitalClock');
+        const analogClock = document.getElementById('analogClock');
+        const modeToggle = document.getElementById('modeToggle');
+        const shapeIndicator = document.getElementById('shapeIndicator');
+        const controlsInfo = document.getElementById('controlsInfo');
+        
+        // Analog clock elements
+        const hourHand = document.getElementById('hourHand');
+        const minuteHand = document.getElementById('minuteHand');
+        const secondHand = document.getElementById('secondHand');
+        const clockFace = document.getElementById('clockFace');
+        const analogDigitalDisplay = document.getElementById('analogDigitalDisplay');
+        
+        // ==================== INITIALIZATION ====================
+        function initializeApp() {
+            console.log("Initializing clock app...");
+            
+            // Load saved settings
+            loadSettings();
+            
+            // Create analog numbers
+            createAnalogNumbers();
+            
+            // Update clock immediately
+            updateClock();
+            
+            // Set up event listeners
+            setupEventListeners();
+            
+            // Start clock updates
+            setInterval(updateClock, 1000);
+            
+            console.log("Clock app initialized!");
+        }
+        
+        // ==================== SETTINGS MANAGEMENT ====================
+        function loadSettings() {
+            // Load light mode
+            const savedLightMode = localStorage.getItem('clockLightMode');
+            if (savedLightMode === 'true') {
+                isLightMode = true;
+                body.classList.add('light-mode');
+            }
+            
+            // Load clock mode
+            const savedClockMode = localStorage.getItem('clockMode');
+            if (savedClockMode === 'analog') {
+                isAnalogMode = true;
+                switchToAnalog();
+            } else {
+                switchToDigital();
+            }
+            
+            updateControlsInfo();
+        }
+        
+        function saveSettings() {
+            localStorage.setItem('clockLightMode', isLightMode);
+            localStorage.setItem('clockMode', isAnalogMode ? 'analog' : 'digital');
+        }
+        
+        // ==================== ANALOG CLOCK ====================
+        function createAnalogNumbers() {
+            if (!clockFace) return;
+            
+            // Clear existing numbers
+            clockFace.innerHTML = '';
+            
+            // Create numbers 1-12
+            for (let i = 1; i <= 12; i++) {
+                const number = document.createElement('div');
+                number.className = 'number';
+                number.textContent = i;
+                
+                // Calculate position (30 degrees per hour)
+                const angle = (i - 3) * (Math.PI * 2) / 12;
+                const radius = 135;
+                const x = Math.cos(angle) * radius;
+                const y = Math.sin(angle) * radius;
+                
+                number.style.left = `calc(50% + ${x}px)`;
+                number.style.top = `calc(50% + ${y}px)`;
+                
+                clockFace.appendChild(number);
+            }
+        }
+        
+        function updateAnalogClock() {
+            const now = new Date();
+            const hours = now.getHours() % 12;
+            const minutes = now.getMinutes();
+            const seconds = now.getSeconds();
+            
+            // Calculate angles (0 degrees at 12 o'clock)
+            const secondAngle = seconds * 6; // 360/60 = 6 degrees per second
+            const minuteAngle = minutes * 6 + seconds * 0.1; // 6 degrees per minute + seconds effect
+            const hourAngle = hours * 30 + minutes * 0.5; // 30 degrees per hour + minutes effect
+            
+            // Update hand rotations
+            if (hourHand) {
+                hourHand.style.transform = `translateX(-50%) rotate(${hourAngle}deg)`;
+            }
+            if (minuteHand) {
+                minuteHand.style.transform = `translateX(-50%) rotate(${minuteAngle}deg)`;
+            }
+            if (secondHand) {
+                secondHand.style.transform = `translateX(-50%) rotate(${secondAngle}deg)`;
+            }
+            
+            // Update digital display
+            if (analogDigitalDisplay) {
+                const timeString = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                analogDigitalDisplay.textContent = timeString;
+            }
+        }
+        
+        // ==================== DIGITAL CLOCK ====================
+        function updateDigitalClock() {
+            const now = new Date();
+            
+            // Format time
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+            
+            // Update display
+            document.getElementById('hours').textContent = hours;
+            document.getElementById('minutes').textContent = minutes;
+            document.getElementById('seconds-main').textContent = seconds;
+            
+            // Format date
+            const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            const months = ['January', 'February', 'March', 'April', 'May', 'June',
+                           'July', 'August', 'September', 'October', 'November', 'December'];
+            
+            const dateString = `${days[now.getDay()]}, ${months[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()}`;
+            document.getElementById('date').textContent = dateString;
+        }
+        
+        // ==================== CLOCK MODE SWITCHING ====================
+        function toggleClockMode() {
+            isAnalogMode = !isAnalogMode;
+            
+            if (isAnalogMode) {
+                switchToAnalog();
+            } else {
+                switchToDigital();
+            }
+            
+            saveSettings();
+            updateControlsInfo();
+        }
+        
+                    background: linear-gradient(to top, #ff6666, #ff4444);
         }
 
         .minute-hand {
@@ -692,3 +1253,4 @@
             }
             if (secondHand) {
                 secondHand.style.transform = `translate
+
