@@ -24,51 +24,51 @@
         }
 
         /* Theme Classes */
-        body.theme-Heart {
+        body.Theme-Heart {
             background: linear-gradient(135deg, #330000 0%, #4d0000 50%, #660000 100%) !important;
         }
 
-        body.theme-Nature {
+        body.Theme-Nature {
             background: linear-gradient(135deg, #001a00 0%, #003300 50%, #004d00 100%) !important;
         }
 
-        body.theme-Star {
+        body.Theme-Star {
             background: linear-gradient(135deg, #332900 0%, #4d3d00 50%, #665200 100%) !important;
         }
 
-        body.theme-Lavender {
+        body.Theme-Lavender {
             background: linear-gradient(135deg, #1a0033 0%, #2b004d 50%, #3d0066 100%) !important;
         }
 
-        body.theme-Sky {
+        body.Theme-Sky {
             background: linear-gradient(135deg, #001a33 0%, #002b4d 50%, #003d66 100%) !important;
         }
 
-        body.theme-Comfort {
+        body.Theme-Comfort {
             background: linear-gradient(135deg, #330033 0%, #4d004d 50%, #660066 100%) !important;
         }
 
-        body.light-mode.theme-Heart {
+        body.light-mode.Theme-Heart {
             background: linear-gradient(135deg, #ffe6e6 0%, #ffb3b3 50%, #ff8080 100%) !important;
         }
 
-        body.light-mode.theme-Nature {
+        body.light-mode.Theme-Nature {
             background: linear-gradient(135deg, #e6ffe6 0%, #b3ffb3 50%, #80ff80 100%) !important;
         }
 
-        body.light-mode.theme-Star {
+        body.light-mode.Theme-Star {
             background: linear-gradient(135deg, #fff9e6 0%, #fff2b3 50%, #ffeb80 100%) !important;
         }
 
-        body.light-mode.theme-Lavender {
+        body.light-mode.Theme-Lavender {
             background: linear-gradient(135deg, #f5e6ff 0%, #e0b3ff 50%, #cc80ff 100%) !important;
         }
 
-        body.light-mode.theme-Sky {
+        body.light-mode.Theme-Sky {
             background: linear-gradient(135deg, #e6f7ff 0%, #b3e6ff 50%, #80d4ff 100%) !important;
         }
 
-        body.light-mode.theme-Comfort {
+        body.light-mode.Theme-Comfort {
             background: linear-gradient(135deg, #ffe6ff 0%, #ffb3ff 50%, #ff80ff 100%) !important;
         }
 
@@ -158,28 +158,28 @@
             color: white;
         }
 
-        body.theme-Heart .theme-top-button.active::after {
+        body.Theme-Heart .theme-top-button.active::after {
             background: #ff0000;
         }
 
-        body.theme-Nature .theme-top-button.active::after {
+        body.Theme-Nature .theme-top-button.active::after {
             background: #00ff00;
         }
 
-        body.theme-Star .theme-top-button.active::after {
+        body.Theme-Star .theme-top-button.active::after {
             background: #ffff00;
             color: #333;
         }
 
-        body.theme-Nature .theme-top-button.active::after {
+        body.Theme-Lavender .theme-top-button.active::after {
             background: #ff00ff;
         }
 
-        body.theme-Sky .theme-top-button.active::after {
+        body.Theme-Sky .theme-top-button.active::after {
             background: #00bfff;
         }
 
-        body.theme-Comfort .theme-top-button.active::after {
+        body.Theme-Comfort .theme-top-button.active::after {
             background: #9370db;
         }
 
@@ -242,40 +242,47 @@
             width: 100%;
         }
 
-        body.theme-Heart .clock-container {
+        body.Theme-Heart .clock-container {
             border: 1px solid rgba(255, 0, 0, 0.2);
             box-shadow: 0 20px 40px rgba(255, 0, 0, 0.1);
+            animation: pulse-Heart 2s ease-in-out infinite alternate;
         }
 
-        body.theme-Nature .clock-container {
+        body.Theme-Nature .clock-container {
             border: 1px solid rgba(0, 255, 0, 0.2);
             box-shadow: 0 20px 40px rgba(0, 255, 0, 0.1);
+            animation: pulse-Nature 2s ease-in-out infinite alternate;
         }
 
-        body.theme-Star .clock-container {
+        body.Theme-Star .clock-container {
             border: 1px solid rgba(255, 255, 0, 0.2);
             box-shadow: 0 20px 40px rgba(255, 255, 0, 0.1);
+            animation: pulse-Star 2s ease-in-out infinite alternate;
         }
 
-        body.theme-Nature .clock-container {
+        body.Theme-Lavender .clock-container {
             border: 1px solid rgba(255, 0, 255, 0.2);
             box-shadow: 0 20px 40px rgba(255, 0, 255, 0.1);
+            animation: pulse-Lavender 2s ease-in-out infinite alternate;
         }
 
-        body.theme-Sky .clock-container {
+        body.Theme-Sky .clock-container {
             border: 1px solid rgba(0, 191, 255, 0.2);
             box-shadow: 0 20px 40px rgba(0, 191, 255, 0.1);
+            animation: pulse-Sky 2s ease-in-out infinite alternate;
         }
 
-        body.theme-Comfort .clock-container {
+        body.Theme-Comfort .clock-container {
             border: 1px solid rgba(147, 112, 219, 0.2);
             box-shadow: 0 20px 40px rgba(147, 112, 219, 0.1);
+            animation: pulse-Comfort 2s ease-in-out infinite alternate;
         }
 
         body.light-mode .clock-container {
             background: rgba(255, 255, 255, 0.8);
             border: 1px solid rgba(0, 0, 0, 0.1);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            animation: pulse-light 2s ease-in-out infinite alternate;
         }
 
         @keyframes pulse {
@@ -287,30 +294,6 @@
                 transform: scale(1.02);
                 box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
             }
-        }
-
-        body.theme-Heart .clock-container {
-            animation: pulse-Heart 2s ease-in-out infinite alternate;
-        }
-
-        body.theme-Nature .clock-container {
-            animation: pulse-Nature 2s ease-in-out infinite alternate;
-        }
-
-        body.theme-Star .clock-container {
-            animation: pulse-Star 2s ease-in-out infinite alternate;
-        }
-
-        body.theme-Nature .clock-container {
-            animation: pulse-Nature 2s ease-in-out infinite alternate;
-        }
-
-        body.theme-Sky .clock-container {
-            animation: pulse-Sky 2s ease-in-out infinite alternate;
-        }
-
-        body.theme-Comfort .clock-container {
-            animation: pulse-Comfort 2s ease-in-out infinite alternate;
         }
 
         @keyframes pulse-Heart {
@@ -340,7 +323,7 @@
             }
         }
 
-        @keyframes pulse-Nature {
+        @keyframes pulse-Lavender {
             0% {
                 box-shadow: 0 20px 40px rgba(255, 0, 255, 0.1);
             }
@@ -367,10 +350,6 @@
             }
         }
 
-        body.light-mode .clock-container {
-            animation: pulse-light 2s ease-in-out infinite alternate;
-        }
-
         @keyframes pulse-light {
             0% {
                 transform: scale(1);
@@ -388,27 +367,27 @@
             transition: all 0.5s ease;
         }
 
-        body.theme-Heart .clock {
+        body.Theme-Heart .clock {
             color: #ff0000;
         }
 
-        body.theme-Nature .clock {
+        body.Theme-Nature .clock {
             color: #00ff00;
         }
 
-        body.theme-Star .clock {
+        body.Theme-Star .clock {
             color: #ffff00;
         }
 
-        body.theme-Nature .clock {
+        body.Theme-Lavender .clock {
             color: #ff00ff;
         }
 
-        body.theme-Sky .clock {
+        body.Theme-Sky .clock {
             color: #00bfff;
         }
 
-        body.theme-Comfort .clock {
+        body.Theme-Comfort .clock {
             color: #9370db;
         }
 
@@ -426,27 +405,27 @@
             transition: all 0.5s ease;
         }
 
-        body.theme-Heart .time {
+        body.Theme-Heart .time {
             text-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
         }
 
-        body.theme-Nature .time {
+        body.Theme-Nature .time {
             text-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
         }
 
-        body.theme-Star .time {
+        body.Theme-Star .time {
             text-shadow: 0 0 10px rgba(255, 255, 0, 0.3);
         }
 
-        body.theme-Nature .time {
+        body.Theme-Lavender .time {
             text-shadow: 0 0 10px rgba(255, 0, 255, 0.3);
         }
 
-        body.theme-Sky .time {
+        body.Theme-Sky .time {
             text-shadow: 0 0 10px rgba(0, 191, 255, 0.3);
         }
 
-        body.theme-Comfort .time {
+        body.Theme-Comfort .time {
             text-shadow: 0 0 10px rgba(147, 112, 219, 0.3);
         }
 
@@ -466,27 +445,27 @@
             animation: glow 2s ease-in-out infinite alternate;
         }
 
-        body.theme-Heart .time::after {
+        body.Theme-Heart .time::after {
             background: linear-gradient(90deg, transparent, #ff0000, transparent);
         }
 
-        body.theme-Nature .time::after {
+        body.Theme-Nature .time::after {
             background: linear-gradient(90deg, transparent, #00ff00, transparent);
         }
 
-        body.theme-Star .time::after {
+        body.Theme-Star .time::after {
             background: linear-gradient(90deg, transparent, #ffff00, transparent);
         }
 
-        body.theme-Nature .time::after {
+        body.Theme-Lavender .time::after {
             background: linear-gradient(90deg, transparent, #ff00ff, transparent);
         }
 
-        body.theme-Sky .time::after {
+        body.Theme-Sky .time::after {
             background: linear-gradient(90deg, transparent, #00bfff, transparent);
         }
 
-        body.theme-Comfort .time::after {
+        body.Theme-Comfort .time::after {
             background: linear-gradient(90deg, transparent, #9370db, transparent);
         }
 
@@ -512,27 +491,27 @@
             transition: all 0.5s ease;
         }
 
-        body.theme-Heart .date {
+        body.Theme-Heart .date {
             color: #ff8080;
         }
 
-        body.theme-Nature .date {
+        body.Theme-Nature .date {
             color: #80ff80;
         }
 
-        body.theme-Star .date {
+        body.Theme-Star .date {
             color: #ffeb80;
         }
 
-        body.theme-Nature .date {
+        body.Theme-Lavender .date {
             color: #ffb3ff;
         }
 
-        body.theme-Sky .date {
+        body.Theme-Sky .date {
             color: #80d4ff;
         }
 
-        body.theme-Comfort .date {
+        body.Theme-Comfort .date {
             color: #cc80ff;
         }
 
@@ -573,27 +552,27 @@
             box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
         }
 
-        body.theme-Heart .clock-face {
+        body.Theme-Heart .clock-face {
             border: 2px solid rgba(255, 0, 0, 0.2);
         }
 
-        body.theme-Nature .clock-face {
+        body.Theme-Nature .clock-face {
             border: 2px solid rgba(0, 255, 0, 0.2);
         }
 
-        body.theme-Star .clock-face {
+        body.Theme-Star .clock-face {
             border: 2px solid rgba(255, 255, 0, 0.2);
         }
 
-        body.theme-Nature .clock-face {
+        body.Theme-Lavender .clock-face {
             border: 2px solid rgba(255, 0, 255, 0.2);
         }
 
-        body.theme-Sky .clock-face {
+        body.Theme-Sky .clock-face {
             border: 2px solid rgba(0, 191, 255, 0.2);
         }
 
-        body.theme-Comfort .clock-face {
+        body.Theme-Comfort .clock-face {
             border: 2px solid rgba(147, 112, 219, 0.2);
         }
 
@@ -619,27 +598,27 @@
             transform: translateX(-50%);
         }
 
-        body.theme-Heart .hour-hand {
+        body.Theme-Heart .hour-hand {
             background: #ff0000;
         }
 
-        body.theme-Nature .hour-hand {
+        body.Theme-Nature .hour-hand {
             background: #00ff00;
         }
 
-        body.theme-Star .hour-hand {
+        body.Theme-Star .hour-hand {
             background: #ffff00;
         }
 
-        body.theme-Nature .hour-hand {
+        body.Theme-Lavender .hour-hand {
             background: #ff00ff;
         }
 
-        body.theme-Sky .hour-hand {
+        body.Theme-Sky .hour-hand {
             background: #00bfff;
         }
 
-        body.theme-Comfort .hour-hand {
+        body.Theme-Comfort .hour-hand {
             background: #9370db;
         }
 
@@ -650,27 +629,27 @@
             transform: translateX(-50%);
         }
 
-        body.theme-Heart .minute-hand {
+        body.Theme-Heart .minute-hand {
             background: #ff0000;
         }
 
-        body.theme-Nature .minute-hand {
+        body.Theme-Nature .minute-hand {
             background: #00ff00;
         }
 
-        body.theme-Star .minute-hand {
+        body.Theme-Star .minute-hand {
             background: #ffff00;
         }
 
-        body.theme-Nature .minute-hand {
+        body.Theme-Lavender .minute-hand {
             background: #ff00ff;
         }
 
-        body.theme-Sky .minute-hand {
+        body.Theme-Sky .minute-hand {
             background: #00bfff;
         }
 
-        body.theme-Comfort .minute-hand {
+        body.Theme-Comfort .minute-hand {
             background: #9370db;
         }
 
@@ -681,27 +660,27 @@
             transform: translateX(-50%);
         }
 
-        body.theme-Heart .second-hand {
+        body.Theme-Heart .second-hand {
             background: #ff0000;
         }
 
-        body.theme-Nature .second-hand {
+        body.Theme-Nature .second-hand {
             background: #00ff00;
         }
 
-        body.theme-Star .second-hand {
+        body.Theme-Star .second-hand {
             background: #ffff00;
         }
 
-        body.theme-Nature .second-hand {
+        body.Theme-Lavender .second-hand {
             background: #ff00ff;
         }
 
-        body.theme-Sky .second-hand {
+        body.Theme-Sky .second-hand {
             background: #00bfff;
         }
 
-        body.theme-Comfort .second-hand {
+        body.Theme-Comfort .second-hand {
             background: #9370db;
         }
 
@@ -723,27 +702,27 @@
             z-index: 11;
         }
 
-        body.theme-Heart .center-circle {
+        body.Theme-Heart .center-circle {
             background: #ff0000;
         }
 
-        body.theme-Nature .center-circle {
+        body.Theme-Nature .center-circle {
             background: #00ff00;
         }
 
-        body.theme-Star .center-circle {
+        body.Theme-Star .center-circle {
             background: #ffff00;
         }
 
-        body.theme-Nature .center-circle {
+        body.Theme-Lavender .center-circle {
             background: #ff00ff;
         }
 
-        body.theme-Sky .center-circle {
+        body.Theme-Sky .center-circle {
             background: #00bfff;
         }
 
-        body.theme-Comfort .center-circle {
+        body.Theme-Comfort .center-circle {
             background: #9370db;
         }
 
@@ -762,32 +741,32 @@
             z-index: 5;
         }
 
-        body.theme-Heart .hour-number {
+        body.Theme-Heart .hour-number {
             color: #ff0000;
             text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
         }
 
-        body.theme-Nature .hour-number {
+        body.Theme-Nature .hour-number {
             color: #00ff00;
             text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
         }
 
-        body.theme-Star .hour-number {
+        body.Theme-Star .hour-number {
             color: #ffff00;
             text-shadow: 0 0 5px rgba(255, 255, 0, 0.5);
         }
 
-        body.theme-Nature .hour-number {
+        body.Theme-Lavender .hour-number {
             color: #ff00ff;
             text-shadow: 0 0 5px rgba(255, 0, 255, 0.5);
         }
 
-        body.theme-Sky .hour-number {
+        body.Theme-Sky .hour-number {
             color: #00bfff;
             text-shadow: 0 0 5px rgba(0, 191, 255, 0.5);
         }
 
-        body.theme-Comfort .hour-number {
+        body.Theme-Comfort .hour-number {
             color: #9370db;
             text-shadow: 0 0 5px rgba(147, 112, 219, 0.5);
         }
@@ -810,32 +789,32 @@
             margin-top: 10px;
         }
 
-        body.theme-Heart .analog-date {
+        body.Theme-Heart .analog-date {
             color: #ff8080;
             border-top: 1px solid rgba(255, 0, 0, 0.2);
         }
 
-        body.theme-Nature .analog-date {
+        body.Theme-Nature .analog-date {
             color: #80ff80;
             border-top: 1px solid rgba(0, 255, 0, 0.2);
         }
 
-        body.theme-Star .analog-date {
+        body.Theme-Star .analog-date {
             color: #ffeb80;
             border-top: 1px solid rgba(255, 255, 0, 0.2);
         }
 
-        body.theme-Nature .analog-date {
+        body.Theme-Lavender .analog-date {
             color: #ffb3ff;
             border-top: 1px solid rgba(255, 0, 255, 0.2);
         }
 
-        body.theme-Sky .analog-date {
+        body.Theme-Sky .analog-date {
             color: #80d4ff;
             border-top: 1px solid rgba(0, 191, 255, 0.2);
         }
 
-        body.theme-Comfort .analog-date {
+        body.Theme-Comfort .analog-date {
             color: #cc80ff;
             border-top: 1px solid rgba(147, 112, 219, 0.2);
         }
@@ -855,27 +834,27 @@
             text-align: center;
         }
 
-        body.theme-Heart .view-indicator {
+        body.Theme-Heart .view-indicator {
             color: #ff8080;
         }
 
-        body.theme-Nature .view-indicator {
+        body.Theme-Nature .view-indicator {
             color: #80ff80;
         }
 
-        body.theme-Star .view-indicator {
+        body.Theme-Star .view-indicator {
             color: #ffeb80;
         }
 
-        body.theme-Nature .view-indicator {
+        body.Theme-Lavender .view-indicator {
             color: #ffb3ff;
         }
 
-        body.theme-Sky .view-indicator {
+        body.Theme-Sky .view-indicator {
             color: #80d4ff;
         }
 
-        body.theme-Comfort .view-indicator {
+        body.Theme-Comfort .view-indicator {
             color: #cc80ff;
         }
 
@@ -983,8 +962,6 @@
             <div class="theme-top-button" data-theme="Star" title="Star Theme">🌟</div>
             <div class="theme-top-button" data-theme="Sky" title="Sky Theme">🩵</div>
             <div class="theme-top-button" data-theme="Lavender" title="Lavender Theme">🪻</div>
-            
-            
         </div>
     </div>
     
@@ -1036,7 +1013,7 @@
         let isLightMode = false;
         let isAnalogView = false;
         let currentDate = '';
-        let currentTheme = 'default'; // default theme
+        let currentTheme = 'Default'; // Default theme
         
         // Create hour numbers for analog clock
         function createHourNumbers() {
@@ -1185,17 +1162,17 @@
         // Change theme
         function changeTheme(theme) {
             // Remove existing theme classes
-            body.classList.remove('theme-Heart', 'theme-Nature', 'theme-Star', 
-                                'theme-Nature', 'theme-Sky', 'theme-Comfort');
+            body.classList.remove('Theme-Heart', 'Theme-Nature', 'Theme-Star', 
+                                'Theme-Lavender', 'Theme-Sky', 'Theme-Comfort');
             
             // Remove active class from all theme buttons
             document.querySelectorAll('.theme-top-button').forEach(button => {
                 button.classList.remove('active');
             });
             
-            // Add new theme class if not default
-            if (theme !== 'default') {
-                body.classList.add(`theme-${theme}`);
+            // Add new theme class if not Default
+            if (theme !== 'Default') {
+                body.classList.add(`Theme-${theme}`);
             }
             
             // Add active class to selected theme button
@@ -1280,5 +1257,4 @@
         init();
     </script>
 </body>
-</html>                     
-
+</html>
