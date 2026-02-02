@@ -1434,13 +1434,6 @@ function updateDateDisplay() {
     analogDateDisplay.textContent = currentDate;
 }
 
-// Also update on window resize
-window.addEventListener('resize', function() {
-    updateDateDisplay();
-    if (isAnalogView) {
-        createHourNumbers();
-    }
-});
 
 
         
@@ -1449,6 +1442,7 @@ window.addEventListener('resize', function() {
     </script>
 </body>
 </html>
+
 
 
 
