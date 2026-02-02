@@ -23,17 +23,185 @@
             transition: background 0.5s ease;
         }
 
+        /* Theme Classes */
+        body.theme-heart {
+            background: linear-gradient(135deg, #330000 0%, #4d0000 50%, #660000 100%) !important;
+        }
+
+        body.theme-gift {
+            background: linear-gradient(135deg, #001a00 0%, #003300 50%, #004d00 100%) !important;
+        }
+
+        body.theme-star {
+            background: linear-gradient(135deg, #332900 0%, #4d3d00 50%, #665200 100%) !important;
+        }
+
+        body.theme-ribbon {
+            background: linear-gradient(135deg, #330033 0%, #4d004d 50%, #660066 100%) !important;
+        }
+
+        body.theme-party {
+            background: linear-gradient(135deg, #001a33 0%, #002b4d 50%, #003d66 100%) !important;
+        }
+
+        body.theme-confetti {
+            background: linear-gradient(135deg, #1a0033 0%, #2b004d 50%, #3d0066 100%) !important;
+        }
+
+        body.light-mode.theme-heart {
+            background: linear-gradient(135deg, #ffe6e6 0%, #ffb3b3 50%, #ff8080 100%) !important;
+        }
+
+        body.light-mode.theme-gift {
+            background: linear-gradient(135deg, #e6ffe6 0%, #b3ffb3 50%, #80ff80 100%) !important;
+        }
+
+        body.light-mode.theme-star {
+            background: linear-gradient(135deg, #fff9e6 0%, #fff2b3 50%, #ffeb80 100%) !important;
+        }
+
+        body.light-mode.theme-ribbon {
+            background: linear-gradient(135deg, #ffe6ff 0%, #ffb3ff 50%, #ff80ff 100%) !important;
+        }
+
+        body.light-mode.theme-party {
+            background: linear-gradient(135deg, #e6f7ff 0%, #b3e6ff 50%, #80d4ff 100%) !important;
+        }
+
+        body.light-mode.theme-confetti {
+            background: linear-gradient(135deg, #f5e6ff 0%, #e0b3ff 50%, #cc80ff 100%) !important;
+        }
+
         body.light-mode {
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        /* Theme buttons at the very top */
+        .theme-top-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        body.light-mode .theme-top-bar {
+            background: rgba(255, 255, 255, 0.3);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .theme-top-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 800px;
+            padding: 0 10px;
+        }
+
+        .theme-top-button {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+            position: relative;
+        }
+
+        .theme-top-button:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .theme-top-button.active {
+            transform: scale(1.1);
+            border: 2px solid white;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        body.light-mode .theme-top-button.active {
+            border: 2px solid #333;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .theme-top-button.active::after {
+            content: '✓';
+            position: absolute;
+            bottom: -5px;
+            right: -5px;
+            background: #ff6666;
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        body.light-mode .theme-top-button.active::after {
+            background: #333;
+            color: white;
+        }
+
+        body.theme-heart .theme-top-button.active::after {
+            background: #ff0000;
+        }
+
+        body.theme-gift .theme-top-button.active::after {
+            background: #00ff00;
+        }
+
+        body.theme-star .theme-top-button.active::after {
+            background: #ffff00;
+            color: #333;
+        }
+
+        body.theme-ribbon .theme-top-button.active::after {
+            background: #ff00ff;
+        }
+
+        body.theme-party .theme-top-button.active::after {
+            background: #00bfff;
+        }
+
+        body.theme-confetti .theme-top-button.active::after {
+            background: #9370db;
+        }
+
+        body.light-mode .theme-top-button {
+            background: rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(0, 0, 0, 0.25);
         }
 
         .controls {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             width: 100%;
             max-width: 600px;
             margin-bottom: 20px;
             padding: 0 10px;
+            margin-top: 70px; /* Added margin for theme bar */
+        }
+
+        .left-controls {
+            display: flex;
+            gap: 10px;
         }
 
         .mode-toggle {
@@ -74,6 +242,36 @@
             width: 100%;
         }
 
+        body.theme-heart .clock-container {
+            border: 1px solid rgba(255, 0, 0, 0.2);
+            box-shadow: 0 20px 40px rgba(255, 0, 0, 0.1);
+        }
+
+        body.theme-gift .clock-container {
+            border: 1px solid rgba(0, 255, 0, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 255, 0, 0.1);
+        }
+
+        body.theme-star .clock-container {
+            border: 1px solid rgba(255, 255, 0, 0.2);
+            box-shadow: 0 20px 40px rgba(255, 255, 0, 0.1);
+        }
+
+        body.theme-ribbon .clock-container {
+            border: 1px solid rgba(255, 0, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(255, 0, 255, 0.1);
+        }
+
+        body.theme-party .clock-container {
+            border: 1px solid rgba(0, 191, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 191, 255, 0.1);
+        }
+
+        body.theme-confetti .clock-container {
+            border: 1px solid rgba(147, 112, 219, 0.2);
+            box-shadow: 0 20px 40px rgba(147, 112, 219, 0.1);
+        }
+
         body.light-mode .clock-container {
             background: rgba(255, 255, 255, 0.8);
             border: 1px solid rgba(0, 0, 0, 0.1);
@@ -88,6 +286,84 @@
             100% {
                 transform: scale(1.02);
                 box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+            }
+        }
+
+        body.theme-heart .clock-container {
+            animation: pulse-heart 2s ease-in-out infinite alternate;
+        }
+
+        body.theme-gift .clock-container {
+            animation: pulse-gift 2s ease-in-out infinite alternate;
+        }
+
+        body.theme-star .clock-container {
+            animation: pulse-star 2s ease-in-out infinite alternate;
+        }
+
+        body.theme-ribbon .clock-container {
+            animation: pulse-ribbon 2s ease-in-out infinite alternate;
+        }
+
+        body.theme-party .clock-container {
+            animation: pulse-party 2s ease-in-out infinite alternate;
+        }
+
+        body.theme-confetti .clock-container {
+            animation: pulse-confetti 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulse-heart {
+            0% {
+                box-shadow: 0 20px 40px rgba(255, 0, 0, 0.1);
+            }
+            100% {
+                box-shadow: 0 25px 50px rgba(255, 0, 0, 0.2);
+            }
+        }
+
+        @keyframes pulse-gift {
+            0% {
+                box-shadow: 0 20px 40px rgba(0, 255, 0, 0.1);
+            }
+            100% {
+                box-shadow: 0 25px 50px rgba(0, 255, 0, 0.2);
+            }
+        }
+
+        @keyframes pulse-star {
+            0% {
+                box-shadow: 0 20px 40px rgba(255, 255, 0, 0.1);
+            }
+            100% {
+                box-shadow: 0 25px 50px rgba(255, 255, 0, 0.2);
+            }
+        }
+
+        @keyframes pulse-ribbon {
+            0% {
+                box-shadow: 0 20px 40px rgba(255, 0, 255, 0.1);
+            }
+            100% {
+                box-shadow: 0 25px 50px rgba(255, 0, 255, 0.2);
+            }
+        }
+
+        @keyframes pulse-party {
+            0% {
+                box-shadow: 0 20px 40px rgba(0, 191, 255, 0.1);
+            }
+            100% {
+                box-shadow: 0 25px 50px rgba(0, 191, 255, 0.2);
+            }
+        }
+
+        @keyframes pulse-confetti {
+            0% {
+                box-shadow: 0 20px 40px rgba(147, 112, 219, 0.1);
+            }
+            100% {
+                box-shadow: 0 25px 50px rgba(147, 112, 219, 0.2);
             }
         }
 
@@ -112,6 +388,30 @@
             transition: all 0.5s ease;
         }
 
+        body.theme-heart .clock {
+            color: #ff0000;
+        }
+
+        body.theme-gift .clock {
+            color: #00ff00;
+        }
+
+        body.theme-star .clock {
+            color: #ffff00;
+        }
+
+        body.theme-ribbon .clock {
+            color: #ff00ff;
+        }
+
+        body.theme-party .clock {
+            color: #00bfff;
+        }
+
+        body.theme-confetti .clock {
+            color: #9370db;
+        }
+
         body.light-mode .clock {
             color: #333;
         }
@@ -124,6 +424,30 @@
             letter-spacing: 2px;
             position: relative;
             transition: all 0.5s ease;
+        }
+
+        body.theme-heart .time {
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+        }
+
+        body.theme-gift .time {
+            text-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+        }
+
+        body.theme-star .time {
+            text-shadow: 0 0 10px rgba(255, 255, 0, 0.3);
+        }
+
+        body.theme-ribbon .time {
+            text-shadow: 0 0 10px rgba(255, 0, 255, 0.3);
+        }
+
+        body.theme-party .time {
+            text-shadow: 0 0 10px rgba(0, 191, 255, 0.3);
+        }
+
+        body.theme-confetti .time {
+            text-shadow: 0 0 10px rgba(147, 112, 219, 0.3);
         }
 
         body.light-mode .time {
@@ -140,6 +464,30 @@
             height: 2px;
             background: linear-gradient(90deg, transparent, #ff6666, transparent);
             animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        body.theme-heart .time::after {
+            background: linear-gradient(90deg, transparent, #ff0000, transparent);
+        }
+
+        body.theme-gift .time::after {
+            background: linear-gradient(90deg, transparent, #00ff00, transparent);
+        }
+
+        body.theme-star .time::after {
+            background: linear-gradient(90deg, transparent, #ffff00, transparent);
+        }
+
+        body.theme-ribbon .time::after {
+            background: linear-gradient(90deg, transparent, #ff00ff, transparent);
+        }
+
+        body.theme-party .time::after {
+            background: linear-gradient(90deg, transparent, #00bfff, transparent);
+        }
+
+        body.theme-confetti .time::after {
+            background: linear-gradient(90deg, transparent, #9370db, transparent);
         }
 
         body.light-mode .time::after {
@@ -164,6 +512,30 @@
             transition: all 0.5s ease;
         }
 
+        body.theme-heart .date {
+            color: #ff8080;
+        }
+
+        body.theme-gift .date {
+            color: #80ff80;
+        }
+
+        body.theme-star .date {
+            color: #ffeb80;
+        }
+
+        body.theme-ribbon .date {
+            color: #ffb3ff;
+        }
+
+        body.theme-party .date {
+            color: #80d4ff;
+        }
+
+        body.theme-confetti .date {
+            color: #cc80ff;
+        }
+
         body.light-mode .date {
             color: #666;
         }
@@ -185,9 +557,10 @@
         .analog-clock {
             display: none;
             position: relative;
-            width: 300px;
-            height: 300px;
+            width: 240px;
+            height: 240px;
             margin: 0 auto;
+            margin-bottom: 20px;
         }
 
         .clock-face {
@@ -198,6 +571,30 @@
             background: rgba(255, 255, 255, 0.05);
             border: 2px solid rgba(255, 255, 255, 0.2);
             box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        body.theme-heart .clock-face {
+            border: 2px solid rgba(255, 0, 0, 0.2);
+        }
+
+        body.theme-gift .clock-face {
+            border: 2px solid rgba(0, 255, 0, 0.2);
+        }
+
+        body.theme-star .clock-face {
+            border: 2px solid rgba(255, 255, 0, 0.2);
+        }
+
+        body.theme-ribbon .clock-face {
+            border: 2px solid rgba(255, 0, 255, 0.2);
+        }
+
+        body.theme-party .clock-face {
+            border: 2px solid rgba(0, 191, 255, 0.2);
+        }
+
+        body.theme-confetti .clock-face {
+            border: 2px solid rgba(147, 112, 219, 0.2);
         }
 
         body.light-mode .clock-face {
@@ -217,23 +614,95 @@
 
         .hour-hand {
             width: 6px;
-            height: 30%;
+            height: 25%;
             background: #ff6666;
             transform: translateX(-50%);
         }
 
+        body.theme-heart .hour-hand {
+            background: #ff0000;
+        }
+
+        body.theme-gift .hour-hand {
+            background: #00ff00;
+        }
+
+        body.theme-star .hour-hand {
+            background: #ffff00;
+        }
+
+        body.theme-ribbon .hour-hand {
+            background: #ff00ff;
+        }
+
+        body.theme-party .hour-hand {
+            background: #00bfff;
+        }
+
+        body.theme-confetti .hour-hand {
+            background: #9370db;
+        }
+
         .minute-hand {
             width: 4px;
+            height: 35%;
+            background: #ff6666;
+            transform: translateX(-50%);
+        }
+
+        body.theme-heart .minute-hand {
+            background: #ff0000;
+        }
+
+        body.theme-gift .minute-hand {
+            background: #00ff00;
+        }
+
+        body.theme-star .minute-hand {
+            background: #ffff00;
+        }
+
+        body.theme-ribbon .minute-hand {
+            background: #ff00ff;
+        }
+
+        body.theme-party .minute-hand {
+            background: #00bfff;
+        }
+
+        body.theme-confetti .minute-hand {
+            background: #9370db;
+        }
+
+        .second-hand {
+            width: 2px;
             height: 40%;
             background: #ff6666;
             transform: translateX(-50%);
         }
 
-        .second-hand {
-            width: 2px;
-            height: 45%;
-            background: #ff6666;
-            transform: translateX(-50%);
+        body.theme-heart .second-hand {
+            background: #ff0000;
+        }
+
+        body.theme-gift .second-hand {
+            background: #00ff00;
+        }
+
+        body.theme-star .second-hand {
+            background: #ffff00;
+        }
+
+        body.theme-ribbon .second-hand {
+            background: #ff00ff;
+        }
+
+        body.theme-party .second-hand {
+            background: #00bfff;
+        }
+
+        body.theme-confetti .second-hand {
+            background: #9370db;
         }
 
         body.light-mode .hour-hand,
@@ -244,14 +713,38 @@
 
         .center-circle {
             position: absolute;
-            width: 12px;
-            height: 12px;
+            width: 10px;
+            height: 10px;
             background: #ff6666;
             border-radius: 50%;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 11;
+        }
+
+        body.theme-heart .center-circle {
+            background: #ff0000;
+        }
+
+        body.theme-gift .center-circle {
+            background: #00ff00;
+        }
+
+        body.theme-star .center-circle {
+            background: #ffff00;
+        }
+
+        body.theme-ribbon .center-circle {
+            background: #ff00ff;
+        }
+
+        body.theme-party .center-circle {
+            background: #00bfff;
+        }
+
+        body.theme-confetti .center-circle {
+            background: #9370db;
         }
 
         body.light-mode .center-circle {
@@ -262,10 +755,41 @@
         .hour-number {
             position: absolute;
             color: #ff6666;
-            font-size: 1.5rem;
+            font-size: 1.1rem;
             font-weight: bold;
             transform: translate(-50%, -50%);
             text-shadow: 0 0 5px rgba(255, 102, 102, 0.5);
+            z-index: 5;
+        }
+
+        body.theme-heart .hour-number {
+            color: #ff0000;
+            text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+        }
+
+        body.theme-gift .hour-number {
+            color: #00ff00;
+            text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+        }
+
+        body.theme-star .hour-number {
+            color: #ffff00;
+            text-shadow: 0 0 5px rgba(255, 255, 0, 0.5);
+        }
+
+        body.theme-ribbon .hour-number {
+            color: #ff00ff;
+            text-shadow: 0 0 5px rgba(255, 0, 255, 0.5);
+        }
+
+        body.theme-party .hour-number {
+            color: #00bfff;
+            text-shadow: 0 0 5px rgba(0, 191, 255, 0.5);
+        }
+
+        body.theme-confetti .hour-number {
+            color: #9370db;
+            text-shadow: 0 0 5px rgba(147, 112, 219, 0.5);
         }
 
         body.light-mode .hour-number {
@@ -273,13 +797,86 @@
             text-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
         }
 
+        /* Date display for analog clock */
+        .analog-date {
+            text-align: center;
+            font-size: 1.3rem;
+            color: #cccccc;
+            opacity: 0.8;
+            letter-spacing: 0.1px;
+            transition: all 0.5s ease;
+            padding-top: 1px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 10px;
+        }
+
+        body.theme-heart .analog-date {
+            color: #ff8080;
+            border-top: 1px solid rgba(255, 0, 0, 0.2);
+        }
+
+        body.theme-gift .analog-date {
+            color: #80ff80;
+            border-top: 1px solid rgba(0, 255, 0, 0.2);
+        }
+
+        body.theme-star .analog-date {
+            color: #ffeb80;
+            border-top: 1px solid rgba(255, 255, 0, 0.2);
+        }
+
+        body.theme-ribbon .analog-date {
+            color: #ffb3ff;
+            border-top: 1px solid rgba(255, 0, 255, 0.2);
+        }
+
+        body.theme-party .analog-date {
+            color: #80d4ff;
+            border-top: 1px solid rgba(0, 191, 255, 0.2);
+        }
+
+        body.theme-confetti .analog-date {
+            color: #cc80ff;
+            border-top: 1px solid rgba(147, 112, 219, 0.2);
+        }
+
+        body.light-mode .analog-date {
+            color: #666;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
         /* View indicator */
         .view-indicator {
-            margin-top: 20px;
+            margin-top: 10px;
             font-size: 0.9rem;
             opacity: 0.7;
             color: #cccccc;
             transition: all 0.5s ease;
+            text-align: center;
+        }
+
+        body.theme-heart .view-indicator {
+            color: #ff8080;
+        }
+
+        body.theme-gift .view-indicator {
+            color: #80ff80;
+        }
+
+        body.theme-star .view-indicator {
+            color: #ffeb80;
+        }
+
+        body.theme-ribbon .view-indicator {
+            color: #ffb3ff;
+        }
+
+        body.theme-party .view-indicator {
+            color: #80d4ff;
+        }
+
+        body.theme-confetti .view-indicator {
+            color: #cc80ff;
         }
 
         body.light-mode .view-indicator {
@@ -288,8 +885,33 @@
 
         /* Media queries */
         @media (max-width: 768px) {
+            .theme-top-bar {
+                padding: 8px 0;
+            }
+            
+            .theme-top-buttons {
+                gap: 8px;
+            }
+            
+            .theme-top-button {
+                width: 40px;
+                height: 40px;
+                font-size: 1.3rem;
+            }
+            
+            .controls {
+                margin-top: 65px;
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .left-controls {
+                width: 100%;
+                justify-content: center;
+            }
+            
             .clock-container {
-                padding: 30px 40px;
+                padding: 20px 20px;
             }
             
             .time {
@@ -301,19 +923,75 @@
             }
             
             .analog-clock {
-                width: 250px;
-                height: 250px;
+                width: 200px;
+                height: 200px;
+                margin-bottom: 15px;
             }
             
             .hour-number {
-                font-size: 1.2rem;
+                font-size: 0.9rem;
+            }
+            
+            .analog-date {
+                font-size: 1.1rem;
+                padding-top: 12px;
+                margin-top: 8px;
+            }
+            
+            .hour-hand {
+                height: 23%;
+            }
+            
+            .minute-hand {
+                height: 33%;
+            }
+            
+            .second-hand {
+                height: 38%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .theme-top-button {
+                width: 35px;
+                height: 35px;
+                font-size: 1.1rem;
+            }
+            
+            .theme-top-button.active::after {
+                width: 16px;
+                height: 16px;
+                font-size: 0.7rem;
+                bottom: -4px;
+                right: -4px;
+            }
+            
+            .controls {
+                margin-top: 60px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Theme buttons at the very top -->
+    <div class="theme-top-bar">
+        <div class="theme-top-buttons" id="themeTopButtons">
+            <div class="theme-top-button active" data-theme="default" title="Default Theme">🕐</div>
+            <div class="theme-top-button" data-theme="heart" title="Heart Theme">❤️</div>
+            <div class="theme-top-button" data-theme="gift" title="Nature Theme">🌳</div>
+            <div class="theme-top-button" data-theme="confetti" title="Comfort Theme">🩷</div>
+            <div class="theme-top-button" data-theme="star" title="Star Theme">🌟</div>
+            <div class="theme-top-button" data-theme="party" title="Party Theme">🩵</div>
+            <div class="theme-top-button" data-theme="ribbon" title="Ribbon Theme">🪻</div>
+            
+            
+        </div>
+    </div>
+    
     <div class="controls">
-        <button class="mode-toggle" id="modeToggle">🌙 Dark Mode</button>
+        <div class="left-controls">
+            <button class="mode-toggle" id="modeToggle">🌙 Dark Mode</button>
+        </div>
         <div class="view-indicator" id="viewIndicator">Click anywhere to switch to Analog Clock</div>
     </div>
     
@@ -336,6 +1014,7 @@
                     <div class="hand second-hand" id="secondHand"></div>
                     <div class="center-circle"></div>
                 </div>
+                <div class="analog-date" id="analogDate">Loading...</div>
             </div>
         </div>
     </div>
@@ -344,21 +1023,33 @@
         // DOM Elements
         const body = document.body;
         const modeToggle = document.getElementById('modeToggle');
+        const themeTopButtons = document.getElementById('themeTopButtons');
         const clockContainer = document.getElementById('clockContainer');
         const digitalClock = document.querySelector('.digital-clock');
         const analogClock = document.getElementById('analogClock');
         const clockFace = document.getElementById('clockFace');
+        const dateDisplay = document.getElementById('date');
+        const analogDateDisplay = document.getElementById('analogDate');
         const viewIndicator = document.getElementById('viewIndicator');
         
         // State variables
         let isLightMode = false;
         let isAnalogView = false;
+        let currentDate = '';
+        let currentTheme = 'default'; // default theme
         
         // Create hour numbers for analog clock
         function createHourNumbers() {
             // Remove existing hour numbers
             const existingNumbers = clockFace.querySelectorAll('.hour-number');
             existingNumbers.forEach(num => num.remove());
+            
+            // Get clock dimensions
+            const clockWidth = analogClock.offsetWidth;
+            const clockHeight = analogClock.offsetHeight;
+            const centerX = clockWidth / 2;
+            const centerY = clockHeight / 2;
+            const radius = Math.min(clockWidth, clockHeight) * 0.38; // 38% of size
             
             // Create hour numbers (1-12)
             for (let i = 1; i <= 12; i++) {
@@ -368,15 +1059,36 @@
                 
                 // Calculate position
                 const angle = (i * 30 - 90) * (Math.PI / 180); // Convert to radians
-                const radius = 120; // Distance from center
-                const x = 150 + radius * Math.cos(angle); // Center x = 150 (half of 300px)
-                const y = 150 + radius * Math.sin(angle); // Center y = 150
+                const x = centerX + radius * Math.cos(angle);
+                const y = centerY + radius * Math.sin(angle);
                 
                 hourNumber.style.left = `${x}px`;
                 hourNumber.style.top = `${y}px`;
                 
                 clockFace.appendChild(hourNumber);
             }
+        }
+        
+        // Update date display (used by both digital and analog)
+        function updateDateDisplay() {
+            const now = new Date();
+            
+            // Get date components
+            const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            const months = ['January', 'February', 'March', 'April', 'May', 'June',
+                           'July', 'August', 'September', 'October', 'November', 'December'];
+            
+            const dayName = days[now.getDay()];
+            const monthName = months[now.getMonth()];
+            const date = now.getDate();
+            const year = now.getFullYear();
+            
+            // Create date string
+            currentDate = `${dayName}, ${monthName} ${date}, ${year}`;
+            
+            // Update date displays
+            dateDisplay.textContent = currentDate;
+            analogDateDisplay.textContent = currentDate;
         }
         
         // Update digital clock
@@ -398,19 +1110,11 @@
             document.getElementById('minutes').textContent = minutes;
             document.getElementById('seconds').textContent = seconds;
             
-            // Get date components
-            const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-            const months = ['January', 'February', 'March', 'April', 'May', 'June',
-                           'July', 'August', 'September', 'October', 'November', 'December'];
-            
-            const dayName = days[now.getDay()];
-            const monthName = months[now.getMonth()];
-            const date = now.getDate();
-            const year = now.getFullYear();
-            
-            // Update date display
-            const dateString = `${dayName}, ${monthName} ${date}, ${year}`;
-            document.getElementById('date').textContent = dateString;
+            // Update date if it's a new day
+            const today = now.toDateString();
+            if (today !== currentDate) {
+                updateDateDisplay();
+            }
         }
         
         // Update analog clock
@@ -432,6 +1136,12 @@
             document.getElementById('secondHand').style.transform = `translateX(-50%) rotate(${secondAngle}deg)`;
             document.getElementById('minuteHand').style.transform = `translateX(-50%) rotate(${minuteAngle}deg)`;
             document.getElementById('hourHand').style.transform = `translateX(-50%) rotate(${hourAngle}deg)`;
+            
+            // Update date if it's a new day
+            const today = now.toDateString();
+            if (today !== currentDate) {
+                updateDateDisplay();
+            }
         }
         
         // Toggle between light and dark mode
@@ -445,6 +1155,9 @@
                 body.classList.remove('light-mode');
                 modeToggle.textContent = '🌙 Dark Mode';
             }
+            
+            // Save mode to localStorage
+            localStorage.setItem('clockMode', isLightMode ? 'light' : 'dark');
         }
         
         // Toggle between digital and analog clock
@@ -455,13 +1168,44 @@
                 digitalClock.style.display = 'none';
                 analogClock.style.display = 'block';
                 viewIndicator.textContent = 'Click anywhere to switch to Digital Clock';
-                // Ensure hour numbers are created
+                // Ensure hour numbers are created with proper sizing
                 createHourNumbers();
+                // Make sure date is displayed
+                updateDateDisplay();
             } else {
                 digitalClock.style.display = 'block';
                 analogClock.style.display = 'none';
                 viewIndicator.textContent = 'Click anywhere to switch to Analog Clock';
             }
+            
+            // Save view to localStorage
+            localStorage.setItem('clockView', isAnalogView ? 'analog' : 'digital');
+        }
+        
+        // Change theme
+        function changeTheme(theme) {
+            // Remove existing theme classes
+            body.classList.remove('theme-heart', 'theme-gift', 'theme-star', 
+                                'theme-ribbon', 'theme-party', 'theme-confetti');
+            
+            // Remove active class from all theme buttons
+            document.querySelectorAll('.theme-top-button').forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // Add new theme class if not default
+            if (theme !== 'default') {
+                body.classList.add(`theme-${theme}`);
+            }
+            
+            // Add active class to selected theme button
+            document.querySelector(`.theme-top-button[data-theme="${theme}"]`).classList.add('active');
+            
+            // Update current theme
+            currentTheme = theme;
+            
+            // Save theme to localStorage
+            localStorage.setItem('clockTheme', theme);
         }
         
         // Update clock based on current view
@@ -477,13 +1221,59 @@
         function init() {
             // Set up event listeners
             modeToggle.addEventListener('click', toggleMode);
+            
+            // Theme button event listeners
+            document.querySelectorAll('.theme-top-button').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const theme = this.dataset.theme;
+                    changeTheme(theme);
+                });
+            });
+            
             clockContainer.addEventListener('click', toggleClockView);
+            
+            // Load saved settings from localStorage
+            const savedTheme = localStorage.getItem('clockTheme');
+            const savedMode = localStorage.getItem('clockMode');
+            const savedView = localStorage.getItem('clockView');
+            
+            if (savedTheme) {
+                changeTheme(savedTheme);
+            }
+            
+            if (savedMode === 'light') {
+                isLightMode = true;
+                body.classList.add('light-mode');
+                modeToggle.textContent = '☀️ Light Mode';
+            }
+            
+            if (savedView === 'analog') {
+                isAnalogView = true;
+                digitalClock.style.display = 'none';
+                analogClock.style.display = 'block';
+                viewIndicator.textContent = 'Click anywhere to switch to Digital Clock';
+                createHourNumbers();
+            }
+            
+            // Initial date display
+            updateDateDisplay();
             
             // Initial clock update
             updateClock();
             
             // Update clock every 50ms for smoother analog animation
             setInterval(updateClock, 50);
+            
+            // Check for date change every minute
+            setInterval(updateDateDisplay, 60000);
+            
+            // Recreate hour numbers on window resize for responsive design
+            window.addEventListener('resize', function() {
+                if (isAnalogView) {
+                    createHourNumbers();
+                }
+            });
         }
         
         // Start the application
